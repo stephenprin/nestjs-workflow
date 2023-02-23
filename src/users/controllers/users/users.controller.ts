@@ -1,26 +1,14 @@
-import { Body, Controller, Get, Post, Req, Res } from '@nestjs/common';
-import { createUserDto } from '../User.dto';
+import { Controller, Get, Inject } from '@nestjs/common';
+import { UsersService } from 'src/users/services/users/users.service';
+import { UserDto } from 'src/users/types';
 
 @Controller('users')
 export class UsersController {
-    
-    @Get()
-    getUsers() { 
-        return[{name:"James author",  email:"michaech@gmail.com"}]
-    }
-    @Get('post')
+  constructor(@Inject('USER_SERVICE') private userService: UsersService) {}
 
-    getPost() {
-        return [{
-            name: "James author", email: "ghd423", post: [{ title: "post1", body: "body1" }, { title: "post2", body: "body2" }]
-        }]
-    }
-
-    @Post()
-    createUser(@Body() userData:createUserDto) { 
-    console.log(userData);
-    return {};
-        
-        
-    }
+  @Get('')
+  getUsers() {
+    let user = this.userService.getUsers();
+    return user;
+  }
 }
