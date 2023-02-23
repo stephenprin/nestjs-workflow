@@ -10,4 +10,8 @@ export class serializeUserDto {
 
     @Exclude()
     password: string;
+
+    constructor(partial: Partial<serializeUserDto>) {
+        Object.assign(this, partial);
+      }
 }
