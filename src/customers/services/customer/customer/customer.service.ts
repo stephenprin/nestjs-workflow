@@ -9,6 +9,12 @@ export class CustomerService {
             name: 'John Doe',
             email: 'str553@gmail.com',
             password: '123456'
+        },
+        {
+            id: 2,
+            name: 'sohn Doe',
+            email: 'gggtr553@gmail.com',
+            password: '123456'
         }
     ]
     fetchCustomers() { 

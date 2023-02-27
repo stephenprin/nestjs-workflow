@@ -28,8 +28,8 @@ export class CustomerController {
     
         
     }
-    @Get(':id')
-    getUserId(@Param('id', ParseIntPipe) id: number, @Res() req:Request, @Res() res:Response)  {
+    @Get('/search/:id')
+    getUserId(@Param('id', ParseIntPipe) id: number)  {
         const user=this.customerServices.getCustomerId(id)
         if (!user) { 
             throw new HttpException("User not found", HttpStatus.NOT_FOUND)

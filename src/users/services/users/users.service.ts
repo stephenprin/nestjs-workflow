@@ -20,7 +20,8 @@ export class UsersService {
   ];
 
   getUsers() {
-      return this.users.map((user) => plainToClass(serializeUserDto, user))
+    return this.users.map((user) =>  new serializeUserDto(user)); // plainToClass(serializeUserDto, user
+    
   }
 
   getUserByUsername(username: string) {
